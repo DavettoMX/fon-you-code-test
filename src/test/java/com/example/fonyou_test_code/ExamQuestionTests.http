@@ -1,0 +1,14 @@
+# GET request to retrieve all questions for all exams
+GET http://localhost:8080/exam-question
+
+# GET request to retrieve all questions for a specific exam
+GET http://localhost:8080/exam-question?examId=1
+
+
+# POST request to create a new question
+POST http://localhost:8080/exam-question
+
+{
+    "examId": 1,
+    "questionId": 1
+}

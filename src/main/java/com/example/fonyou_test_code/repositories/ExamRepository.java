@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface ExamRepository extends CrudRepository<ExamModel, Long> {
 
     ExamModel findByExamName(String examName);
+
 }

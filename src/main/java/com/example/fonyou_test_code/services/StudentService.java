@@ -25,10 +25,6 @@ public class StudentService {
         }
     }
 
-    public StudentModel saveStudent(StudentModel student) {
-        return studentRepository.save(student);
-    }
-
     public StudentModel getStudentById(Long id) {
         try {
             return studentRepository.findById(id).orElse(null);
@@ -46,4 +42,9 @@ public class StudentService {
             return null;
         }
     }
+
+    public StudentModel saveStudent(StudentModel student) {
+        return studentRepository.save(student);
+    }
+
 }

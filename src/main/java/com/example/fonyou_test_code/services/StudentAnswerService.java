@@ -1,7 +1,11 @@
 package com.example.fonyou_test_code.services;
 
+import com.example.fonyou_test_code.models.ExamQuestionModel;
 import com.example.fonyou_test_code.models.StudentAnswerModel;
+import com.example.fonyou_test_code.models.StudentModel;
+import com.example.fonyou_test_code.repositories.ExamQuestionRepository;
 import com.example.fonyou_test_code.repositories.StudentAnswerRepository;
+import com.example.fonyou_test_code.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +17,12 @@ public class StudentAnswerService {
     @Autowired
     StudentAnswerRepository studentAnswerRepository;
 
+    @Autowired
+    private StudentRepository studentRepository;
+
+    @Autowired
+    private ExamQuestionRepository examQuestionRepository;
+
     public ArrayList<StudentAnswerModel> getStudentAnswers() {
         try {
             return (ArrayList<StudentAnswerModel>) studentAnswerRepository.findAll();
@@ -23,7 +33,12 @@ public class StudentAnswerService {
     }
 
     public StudentAnswerModel saveStudentAnswer(StudentAnswerModel studentAnswer) {
-        return studentAnswerRepository.save(studentAnswer);
+        try {
+            return studentAnswerRepository.save(studentAnswer);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
 }

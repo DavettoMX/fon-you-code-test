@@ -5,6 +5,8 @@ import com.example.fonyou_test_code.models.StudentModel;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.ZonedDateTime;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
@@ -80,11 +82,11 @@ class FonyouTestCodeApplicationTests {
 
         exam.setExamName("Test Exam");
         exam.setExamTopic("Test Topic");
-        exam.setExamDateBogotaTimezone("2021-10-10T10:00:00-05:00");
+        exam.setExamDate(ZonedDateTime.parse("2021-01-01T00:00:00-05:00"));
 
         assert (exam.getExamName().equals("Test Exam"));
         assert (exam.getExamTopic().equals("Test Topic"));
-        assert (exam.getExamDateBogotaTimezone().equals("2021-10-10T10:00:00-05:00"));
+        assert (exam.getExamDate().equals(ZonedDateTime.parse("2021-01-01T00:00:00-05:00")));
     }
 
     @Test
@@ -92,11 +94,11 @@ class FonyouTestCodeApplicationTests {
         ExamModel exam = new ExamModel();
 
         exam.setExamName("Test Exam");
-        exam.setExamDateBogotaTimezone("2021-10-10T10:00:00-05:00");
+        exam.setExamDate(ZonedDateTime.parse("2021-10-10T10:00:00-05:00"));
 
         assert (exam.getExamName().equals("Test Exam"));
         assert (exam.getExamTopic() == null);
-        assert (exam.getExamDateBogotaTimezone().equals("2021-10-10T10:00:00-05:00"));
+        assert (exam.getExamDate().equals(ZonedDateTime.parse("2021-10-10T10:00:00-05:00")));
     }
 
     @Test
@@ -105,11 +107,11 @@ class FonyouTestCodeApplicationTests {
             ExamModel exam = new ExamModel();
 
             exam.setExamTopic("Test Topic");
-            exam.setExamDateBogotaTimezone("2021-10-10T10:00:00-05:00");
+            exam.setExamDate(ZonedDateTime.parse("2021-10-10T10:00:00-05:00"));
 
             assert (exam.getExamName().equals("Test Exam"));
             assert (exam.getExamTopic().equals("Test Topic"));
-            assert (exam.getExamDateBogotaTimezone().equals("2021-10-10T10:00:00-05:00"));
+            assert (exam.getExamDate().equals(ZonedDateTime.parse("2021-10-10T10:00:00-05:00")));
         });
     }
 
@@ -123,7 +125,7 @@ class FonyouTestCodeApplicationTests {
 
             assert (exam.getExamName().equals("Test Exam"));
             assert (exam.getExamTopic().equals("Test Topic"));
-            assert (exam.getExamDateBogotaTimezone().equals("2021-10-10T10:00:00-05:00"));
+            assert (exam.getExamDate().equals("2021-01-01T00:00:00-05:00"));
         });
     }
 

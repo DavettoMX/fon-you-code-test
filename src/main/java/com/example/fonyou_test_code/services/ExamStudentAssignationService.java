@@ -1,9 +1,7 @@
 package com.example.fonyou_test_code.services;
 
-import com.example.fonyou_test_code.models.ExamModel;
-import com.example.fonyou_test_code.models.ExamStudentAssignationModel;
+import com.example.fonyou_test_code.models.*;
 
-import com.example.fonyou_test_code.models.StudentModel;
 import com.example.fonyou_test_code.repositories.ExamRepository;
 import com.example.fonyou_test_code.repositories.StudentRepository;
 import com.example.fonyou_test_code.repositories.ExamStudentAssignationRepository;
@@ -11,11 +9,8 @@ import com.example.fonyou_test_code.repositories.ExamStudentAssignationRepositor
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-
-import java.util.ArrayList;
+import java.time.*;
+import java.util.*;
 
 @Service
 public class ExamStudentAssignationService {
@@ -47,15 +42,16 @@ public class ExamStudentAssignationService {
         ExamModel exam = examRepository.findByExamName(examName);
         StudentModel student = studentRepository.findByStudentName(studentName);
 
-        if (exam != null && student != null) {
-            examStudentAssignation.setExam(exam);
-            examStudentAssignation.setStudent(student);
-            examStudentAssignation.setExamDateStudentTimezone(ZonedDateTime.now(ZoneId.of("America/Bogota")));
+        ZonedDateTime examDate = exam.getExamDate();
+        String studentTimeZone = student.getStudentTimezone();
 
-            return examStudentAssignationRepository.save(examStudentAssignation);
-        } else {
-            return null;
-        }
+        ZonedDateTime examDateInStudentTimeZone = examDate.withZoneSameInstant(ZoneId.of(studentTimeZone));
+
+        examStudentAssignation.setExamDate(examDateInStudentTimeZone);
+        examStudentAssignation.setExam(exam);
+        examStudentAssignation.setStudent(student);
+
+        return examStudentAssignationRepository.save(examStudentAssignation);
     }
 
 }

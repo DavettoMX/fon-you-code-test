@@ -2,6 +2,8 @@ package com.example.fonyou_test_code.models;
 
 import jakarta.persistence.*;
 
+import java.time.*;
+
 @Entity
 @Table(name = "exam")
 public class ExamModel {
@@ -19,7 +21,7 @@ public class ExamModel {
 
     private String examTopic;
 
-    private String examDateBogotaTimezone;
+    private ZonedDateTime examDate;
 
     /* Getters and setters */
     public Long getExamId() {
@@ -54,13 +56,12 @@ public class ExamModel {
         this.examTopic = examTopic;
     }
 
-    public String getExamDateBogotaTimezone() {
-        return examDateBogotaTimezone;
+    public ZonedDateTime getExamDate() {
+        return examDate;
     }
 
-    public void setExamDateBogotaTimezone(String examDateBogotaTimezone) {
-        this.examDateBogotaTimezone = examDateBogotaTimezone;
+    public void setExamDate(ZonedDateTime examDateBogotaTimezone) {
+        this.examDate = examDateBogotaTimezone;
     }
-
 
 }

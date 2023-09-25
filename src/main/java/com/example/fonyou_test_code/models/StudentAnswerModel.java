@@ -16,11 +16,24 @@ public class StudentAnswerModel {
     private StudentModel student;
 
     @ManyToOne
-    @JoinColumn(name = "questionId", nullable = false)
-    private ExamQuestionModel question;
+    @JoinColumn(name = "examQuestionId", nullable = false)
+    private ExamQuestionModel examQuestion;
+
+    @Transient
+    private String examQuestionText;
+
+    @Transient
+    private String studentName;
 
     @Column(nullable = false)
-    private String studentAnswer;
+    private Integer studentAnswer;
+
+    @Column(nullable = false)
+    private Float studentScore;
+
+    @Column(nullable = false)
+    private Boolean isCorrect;
+
 
     /* Getters and setters */
     public Long getStudentAnswerId() {
@@ -39,18 +52,52 @@ public class StudentAnswerModel {
         this.student = student;
     }
 
-    public ExamQuestionModel getQuestion() {
-        return question;
+    public ExamQuestionModel getExamQuestion() {
+        return examQuestion;
     }
 
-    public void setQuestion(ExamQuestionModel question) {
-        this.question = question;
+    public String getExamQuestionText() {
+        return examQuestionText;
     }
 
-    public String getStudentAnswer() { return studentAnswer; }
+    public void setExamQuestionText(String examQuestionText) {
+        this.examQuestionText = examQuestionText;
+    }
 
-    public void setStudentAnswer(String studentAnswer) {
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
+
+    public void setExamQuestion(ExamQuestionModel examQuestion) {
+        this.examQuestion = examQuestion;
+    }
+
+    public Integer getStudentAnswer() {
+        return studentAnswer;
+    }
+
+    public void setStudentAnswer(Integer studentAnswer) {
         this.studentAnswer = studentAnswer;
+    }
+
+    public Float getStudentScore() {
+        return studentScore;
+    }
+
+    public void setStudentScore(Float studentScore) {
+        this.studentScore = studentScore;
+    }
+
+    public Boolean getIsCorrect() {
+        return isCorrect;
+    }
+
+    public void setIsCorrect(Boolean isCorrect) {
+        this.isCorrect = isCorrect;
     }
 
 }

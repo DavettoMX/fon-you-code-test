@@ -1,0 +1,12 @@
+# GET request to retrieve all questions for all exams
+GET http://localhost:8080/student-answer
+
+# POST asign a student to an exam
+POST http://localhost:8080/examStudentAssignation
+{
+    "examQuestionText": "What is the capital of France?",
+    "studentName": "John Doe",
+    "studentAnswer": 1,
+    "studentScore": 100,
+    "isCorrect": true
+}

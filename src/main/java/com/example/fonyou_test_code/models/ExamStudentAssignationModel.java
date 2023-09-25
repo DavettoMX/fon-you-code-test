@@ -27,9 +27,7 @@ public class ExamStudentAssignationModel {
     @Transient
     private String studentName;
 
-
-    @Column(nullable = false)
-    private ZonedDateTime examDateStudentTimezone;
+    private ZonedDateTime examDate;
 
     /* Getters and setters */
     public Long getExamStudentAssignationId() {
@@ -56,12 +54,12 @@ public class ExamStudentAssignationModel {
         this.student = student;
     }
 
-    public ZonedDateTime getExamDateStudentTimezone() {
-        return examDateStudentTimezone;
+    public ZonedDateTime getExamDate() {
+        return examDate;
     }
 
-    public void setExamDateStudentTimezone(ZonedDateTime examDateStudentTimezone) {
-        this.examDateStudentTimezone = examDateStudentTimezone;
+    public void setExamDate(ZonedDateTime examDate) {
+        this.examDate = examDate;
     }
 
     public String getExamName() {
@@ -80,5 +78,11 @@ public class ExamStudentAssignationModel {
         this.studentName = studentName;
     }
 
+    public Long getStudentId() {
+        return this.student.getStudentId();
+    }
 
+    public void setStudentId(Long studentId) {
+        this.student.setStudentId(studentId);
+    }
 }

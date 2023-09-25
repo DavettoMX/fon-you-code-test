@@ -10,6 +10,4 @@ import java.util.List;
 @Repository
 public interface ExamQuestionRepository extends CrudRepository<ExamQuestionModel, Long> {
 
-    List<ExamQuestionModel> findByExam(ExamModel exam);
-
 }

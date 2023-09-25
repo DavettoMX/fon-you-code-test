@@ -1,5 +1,5 @@
 # GET request to retrieve all students
-GET http://localhost:8080/student
+# GET http://localhost:8080/student
 
 # POST request to create a new student
 POST http://localhost:8080/student
@@ -7,7 +7,7 @@ Content-Type: application/json
 
     {
     "studentName": "John Doe",
-    "studentAge": 25,
-    "studentCity": "Madrid",
-    "studentTimezone": "Europe/Madrid"
+    "studentAge": 18,
+    "studentCity": "Paris",
+    "studentTimezone": "Europe/Paris"
     }

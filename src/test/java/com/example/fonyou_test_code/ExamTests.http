@@ -1,13 +1,13 @@
 # GET request to retrieve all exams
-GET http://localhost:8080/exams
+# GET http://localhost:8080/exam
 
 # POST request to create an exam
-POST http://localhost:8080/exams
+POST http://localhost:8080/exam
 Content-Type: application/json
 
 {
     "examName": "examName",
     "examCourseName": "courseName",
     "examTopic": "examTopic",
-    "examDateBogotaTimezone": "2021-01-01T00:00:00",
+    "examDate": "2021-01-01T00:00:00-05:00"
 }

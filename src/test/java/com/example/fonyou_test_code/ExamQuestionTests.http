@@ -1,14 +1,16 @@
 # GET request to retrieve all questions for all exams
-GET http://localhost:8080/exam-question
+# GET http://localhost:8080/exam-question
 
-# GET request to retrieve all questions for a specific exam
-GET http://localhost:8080/exam-question?examId=1
-
-
-# POST request to create a new question
 POST http://localhost:8080/exam-question
+Content-Type: application/json
 
 {
-    "examId": 1,
-    "questionId": 1
+    "examName": "examName",
+    "questionText": "What is the capital of France?",
+    "correctAnswer": 1,
+    "questionValue": 100,
+    "option1": 1,
+    "option2": 2,
+    "option3": 3,
+    "option4": 4
 }

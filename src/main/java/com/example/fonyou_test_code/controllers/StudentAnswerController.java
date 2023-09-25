@@ -3,10 +3,8 @@ package com.example.fonyou_test_code.controllers;
 import com.example.fonyou_test_code.models.StudentAnswerModel;
 import com.example.fonyou_test_code.services.StudentAnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -23,7 +21,7 @@ public class StudentAnswerController {
     }
 
     @PostMapping()
-    public StudentAnswerModel saveStudentAnswer(StudentAnswerModel studentAnswer) {
-        return this.studentAnswerService.saveStudentAnswer(studentAnswer);
+    public StudentAnswerModel saveStudentAnswer(@RequestBody StudentAnswerModel studentAnswer) {
+        return ResponseEntity.ok(studentAnswerService.saveStudentAnswer(studentAnswer)).getBody();
     }
 }

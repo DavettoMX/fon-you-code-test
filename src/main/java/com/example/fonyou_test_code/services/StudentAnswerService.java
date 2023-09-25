@@ -33,10 +33,17 @@ public class StudentAnswerService {
     }
 
     public StudentAnswerModel saveStudentAnswer(StudentAnswerModel studentAnswer) {
-        try {
+        String studentName = studentAnswer.getStudentName();
+        String examQuestionText = studentAnswer.getExamQuestionText();
+
+        StudentModel student = studentRepository.findByStudentName(studentName);
+        ExamQuestionModel examQuestion = examQuestionRepository.findByQuestionText(examQuestionText);
+
+        if (student != null && examQuestion != null) {
+            studentAnswer.setStudent(student);
+            studentAnswer.setExamQuestion(examQuestion);
             return studentAnswerRepository.save(studentAnswer);
-        } catch (NullPointerException e) {
-            e.printStackTrace();
+        } else {
             return null;
         }
     }

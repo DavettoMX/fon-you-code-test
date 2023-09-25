@@ -9,4 +9,9 @@ import java.util.List;
 
 @Repository
 public interface ExamStudentAssignationRepository extends CrudRepository<ExamStudentAssignationModel, Long> {
+
+    List<ExamStudentAssignationModel> findAllByExam_ExamId(Long examId);
+
+    ExamStudentAssignationModel findByExam_ExamIdAndStudent_StudentId(Long examId, Long studentId);
+
 }

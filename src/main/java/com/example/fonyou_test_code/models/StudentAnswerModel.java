@@ -34,7 +34,6 @@ public class StudentAnswerModel {
     @Column(nullable = false)
     private Boolean isCorrect;
 
-
     /* Getters and setters */
     public Long getStudentAnswerId() {
         return studentAnswerId;
@@ -99,5 +98,14 @@ public class StudentAnswerModel {
     public void setIsCorrect(Boolean isCorrect) {
         this.isCorrect = isCorrect;
     }
+
+    public Long getExamId() {
+        return examQuestion.getExam().getExamId();
+    }
+
+    public Long getQuestionId() {
+        return examQuestion.getExamQuestionId();
+    }
+
 
 }

@@ -10,4 +10,6 @@ import java.util.List;
 
 @Repository
 public interface StudentAnswerRepository extends CrudRepository<StudentAnswerModel, Long> {
+
+    List<StudentAnswerModel> findAllByStudent_StudentIdAndExamQuestion_Exam_ExamId(Long studentId, Long examId);
 }

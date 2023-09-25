@@ -21,7 +21,6 @@ public class ExamStudentCalificationModel {
     @Transient
     private String studentName;
 
-    @Column(nullable = false)
     private Double calification;
 
     /* Getters and setters */
@@ -55,11 +54,6 @@ public class ExamStudentCalificationModel {
 
     public void setStudentName(String studentName) {
         this.studentName = studentName;
-    }
-
-    // set studentId
-    public void setStudentId(Long studentId) {
-        this.examStudentAssignation.setStudentId(studentId);
     }
 
     public Double getCalification() {

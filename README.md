@@ -16,7 +16,7 @@ This API was built using the following technologies:
 
 - Java 17.0.8
 - Spring Boot 3.1.4
-- Maven 4.0.0
+- Maven 3.9.4
 - PostgreSQL 16.
 
 ## Installation
@@ -58,14 +58,28 @@ it is configured to use the Hibernate ORM.
 
 ## API Testing
 
-You can test the API using the test cases in
+For test the API you can use the test cases in
 
 ```
 src/test/java/com/example/fonyou_test_code
 ```
 
-Here you can find the `.http` files to create the calls,
-as well you always can copy the JSON calls and use Postman or Insomnia to test the API.
+Here you can find all the `.http` files to create the API calls,
+as well, you always can copy the JSON calls and use Postman to test the API.
+
+As well you can find the file:
+
+```
+src/test/java/com/example/fonyou_test_code/FonyouTestCodeApplicationTests.java
+```
+
+That contains test cases for the API.
+
+To run the test cases you can use the following command:
+
+```bash
+mvn test
+```
 
 Feel free to add more test cases if you want.
 

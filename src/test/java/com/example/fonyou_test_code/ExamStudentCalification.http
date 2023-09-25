@@ -1,0 +1,11 @@
+# GET request to retrieve all questions for all exams
+# GET http://localhost:8080/examStudentCalification
+
+# POST asign a student to an exam
+POST http://localhost:8080/examStudentCalification
+Content-Type: application/json
+
+{
+  "examName": "examName",
+  "studentName": "John Doe"
+}
